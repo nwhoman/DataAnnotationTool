@@ -69,6 +69,7 @@ struct AnnotationViewMenu: View {
                         savePictureAnnotations(viewModel: viewModel, boxes: boxes, fileName: viewModel.selectedFolder!.lastPathComponent)
                         boxes = []
                         undoneBoxes = []
+                        scaleFactor = 1.0
                     } label: {
                         HStack {
                             Text("Save Image")

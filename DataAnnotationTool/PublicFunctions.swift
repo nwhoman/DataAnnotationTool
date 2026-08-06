@@ -98,7 +98,7 @@ func writeAnnotationsToFile(vm: PhotoPickerViewModel) {
         let jsonData = try jsonEncoder.encode(vm.existingImagesAnnotated)
     
         let path = vm.selectedFolder!
-        let name = path.lastPathComponent + ".json"
+        let name = "annotations.json" //path.lastPathComponent +
         
         let newPath = path.appending(path: name)
         print("\(newPath)")

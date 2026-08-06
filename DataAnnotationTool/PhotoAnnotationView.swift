@@ -188,6 +188,7 @@ struct PhotoAnnotationView: View {
                                                         boxes = restoreImageSavedProperties(vm: viewModel, annotationImage: savedImage)
                                                         
                                                     } else {
+                                                        
                                                         viewModel.selectedImage = image
                                                     }
                                                 }
@@ -199,7 +200,7 @@ struct PhotoAnnotationView: View {
                                                             .scaledToFill()
                                                             .frame(width: 200, height: 200)
                                                             .cornerRadius(10)
-                                                        Text("\(image.size.width)x\(image.size.height)")
+                                                        Text("\(String(format: "%0.1f", image.size.width)) x \(String(format: "%0.1f", image.size.height))")
                                                         
                                                     }
                                                     
@@ -222,7 +223,7 @@ struct PhotoAnnotationView: View {
                                         //                                .frame(width: 600, height: 600)
                                             .cornerRadius(10)
                                             .overlay(alignment: .top) {
-                                                Canvas(opaque: true, colorMode: .nonLinear, rendersAsynchronously: false) { context, size in
+                                                Canvas(opaque: false, colorMode: .nonLinear, rendersAsynchronously: false) { context, size in
                                                     
                                                     for box in boxes {
                                                         context.stroke(Path(box.rect), with: .color(box.color), lineWidth: 2)
